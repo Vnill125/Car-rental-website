@@ -1,0 +1,32 @@
+{% if user.is_authenticated %}
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href={% url "home" %}>Car<span style='color:red;'>Rent</span></a>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href={% url "home" %} class="nav-link" style='color:red;'>Home</a></li>
+          <li class="nav-item"><a href={% url "about" %} class="nav-link">About</a></li>
+          <li class="nav-item"><a href={% url "cars" %} class="nav-link">Cars</a></li>
+          <li class="nav-item"><a href={% url "contact" %} class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href={% url "booking-list" %} class="nav-link">Orders</a></li>
+          <li class="nav-item"><a href={% url "logout" %} class="nav-link" style='color:red;'>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% else %}
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href={% url "home" %}>Car<span style='color:red;'>Rent</span></a>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href={% url "home" %} class="nav-link" style='color:red;'>Home</a></li>
+          <li class="nav-item"><a href={% url "about" %} class="nav-link">About</a></li>
+          <li class="nav-item"><a href={% url "cars" %} class="nav-link">Cars</a></li>
+          <li class="nav-item"><a href={% url "contact" %} class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href={% url "login" %} class="nav-link" style='color:lightgreen;'>Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endif %}

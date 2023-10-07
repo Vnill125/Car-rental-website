@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Car-Rent</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href={% static "css/open-iconic-bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "css/animate.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.carousel.min.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.theme.default.min.css" %}>
+    <link rel="stylesheet" href={% static "css/magnific-popup.css" %}>
+    <link rel="stylesheet" href={% static "css/aos.css" %}>
+    <link rel="stylesheet" href={% static "css/ionicons.min.css" %}>
+    <link rel="stylesheet" href={% static "css/bootstrap-datepicker.css" %}>
+    <link rel="stylesheet" href={% static "css/jquery.timepicker.css" %}>
+    <link rel="stylesheet" href={% static "css/flaticon.css" %}>
+    <link rel="stylesheet" href={% static "css/icomoon.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+
+  </head>
+  <body>
+    
+    {% include "navbar.html" %}
+    <!-- END nav -->
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight " style="background-image: url({% static "images/bg_3.jpg" %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">About Us</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-animate" >
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({% static "images/bg_2.jpg" %});">
+					</div>
+					<div class="col-md-6 wrap-about ftco-animate">
+	          <div class="heading-section heading-section-white pl-md-5">
+	          	<span class="subheading" style='color:black;' >About us</span>
+              <h1 class="navbar-brand" >Car<span style='color:red;'>Rent</span></h1>
+	            <h4 style='color:black;'>Car-Rent is your car rental company in Katowice and Kraków that will give you a unique experience. Our offer includes cars that combine luxury with sports emotions - we provide cars that guarantee not only comfort, but also thrills. As leaders in the car rental industry, we perfectly understand that it's not just about getting from point A to point B. What matters is how that journey takes place. Providing not only the highest quality vehicles, but also unforgettable experiences is our priority. Thanks to this, each trip becomes not only practical, but above all - extremely comfortable and full of luxury.</h4>
+	          </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+			<div class="overlay" style='background:black;'></div>
+    	<div class="container">
+    		<div class="row">
+          <div class=" col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" style='color:red;' data-number="3">0</strong>
+                <span >Year on <br>Market</span>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" style='color:red;' data-number="11">0</strong>
+                <span>Total <br>Cars</span>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" style='color:red;' data-number="844">0</strong>
+                <span>Happy <br>Customers</span>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" style='color:red;' data-number="2">0</strong>
+                <span>Locations<br></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>	
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span style='color:red'>Rent</span></a></h2>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href={% url "about" %} class="py-2 d-block">About</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span ></span><span class="text">Ulica Staisława Moniuszki 15, 40-005, Katowice</span></li>
+	                <li><a><span></span><span class="text">+48 888 999 000</span></a></li>
+	                <li><a><span></span><span class="text">info@car-rent.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+  <script src={% static "js/jquery.min.js" %}></script>
+  <script src={% static 'js/jquery-migrate-3.0.1.min.js' %}></script>
+  <script src={% static "js/popper.min.js" %}></script>
+  <script src={% static "js/bootstrap.min.js" %}></script>
+  <script src={% static "js/jquery.easing.1.3.js" %}></script>
+  <script src={% static "js/jquery.waypoints.min.js" %}></script>
+  <script src={% static "js/jquery.stellar.min.js" %}></script>
+  <script src={% static "js/owl.carousel.min.js" %}></script>
+  <script src={% static "js/jquery.magnific-popup.min.js" %}></script>
+  <script src={% static "js/aos.js" %}></script>
+  <script src={% static "js/jquery.animateNumber.min.js" %}></script>
+  <script src={% static "js/scrollax.min.js" %}></script>
+  <script src={% static "js/main.js" %}></script>
+    
+  </body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Car-Rent</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href={% static "css/open-iconic-bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "css/animate.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.carousel.min.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.theme.default.min.css" %}>
+    <link rel="stylesheet" href={% static "css/magnific-popup.css" %}>
+    <link rel="stylesheet" href={% static "css/aos.css" %}>
+    <link rel="stylesheet" href={% static "css/ionicons.min.css" %}>
+    <link rel="stylesheet" href={% static "css/bootstrap-datepicker.css" %}>
+    <link rel="stylesheet" href={% static "css/jquery.timepicker.css" %}>
+    <link rel="stylesheet" href={% static "css/flaticon.css" %}>
+    <link rel="stylesheet" href={% static "css/icomoon.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+  </head>
+  
+  <body>
+	{% include "navbar.html" %}
+    <!-- END nav -->
+	
+
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static "images/bg_2.jpg" %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+            <h1 class="mb-3 bread">Car Details</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+
+	<section class="ftco-section ftco-car-details ftco-animate">
+      <div class="container">
+      	<div class="row justify-content-center">
+      		<div class="col-md-12">
+      			<div class="car-details">
+      				<div class="img rounded" style="background-image: url({{car.image.url}});"></div>
+      				<div class="text text-center">
+      					<span class="subheading">{{car.car_brand}}</span>
+      					<h2>{{car.car_model}}</h2>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+      	<div class="row">
+      		<div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3" style='color:red'>
+		                	Mileage
+		                	<span>{{car.mileage}}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3" style='color:red'>
+		                	Transmission
+		                	<span>{{car.transmission}}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+		  
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3" style='color:red'>
+		                	Fuel
+		                	<span>{{car.fuel}}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+
+		  <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3" style='color:red'>
+		                	Price
+		                	<span>${{car.price}} / day</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+
+      	</div>
+		{% if car.is_available == True %}
+		<div class="col-md d-flex align-self-stretch ftco-animate">
+			<p class="d-flex mb-0 d-block"><a href={% url "book-car" car.id %} class="btn btn-primary py-2 mr-1">Book now</a>
+		</div>
+		{% else %}
+		<div class="col-md d-flex align-self-stretch ftco-animate">
+			<p class="d-flex mb-0 d-block"><a href='' class="btn btn-danger py-2 mr-1">Unavailable now</a>
+		</div>
+		{% endif %}
+	</section>
+
+	<section class="ftco-section ftco-no-pt ">
+
+    	<div class="container">
+    		<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Choose Car</span>
+            <h2 class="mb-2">Related Cars</h2>
+          </div>
+        </div>
+
+        <div class="row">
+			{% for vehicle in cars %}
+			{% if vehicle.id == car.id %}
+			{% else %}
+			{% if vehicle.fuel != car.fuel %}
+			{% else %}
+			{% if vehicle.is_available == True %}
+        	<div class="col-md-4">
+    				<div class="car-wrap rounded ftco-animate">
+    					<div class="img rounded d-flex align-items-end" style="background-image: url({{vehicle.image.url}});">
+    					</div>
+    					<div class="text">
+    						<h2 class="mb-0"><a href="car-single.html">{{vehicle.car_model}}</a></h2>
+    						<div class="d-flex mb-3">
+	    						<span class="cat">{{vehicle.car_brand}}</span>
+	    						<p class="price ml-auto" style='color:green;'>${{vehicle.price}} <span>/day</span></p>
+    						</div>
+    						<p class="d-flex mb-0 d-block"><a href={% url "book-car" vehicle.id %} class="btn btn-primary py-2 mr-1">Book now</a> <a href={% url "car" vehicle.id %} class="btn btn-secondary py-2 ml-1">Details</a></p>
+    					</div>
+    				</div>
+    			</div>
+				{% else %}
+				<div class="col-md-4">
+    				<div class="car-wrap rounded ftco-animate">
+    					<div class="img rounded d-flex align-items-end" style="background-image: url({{vehicle.image.url}});">
+    					</div>
+    					<div class="text">
+    						<h2 class="mb-0"><a href="car-single.html">{{vehicle.car_model}}</a></h2>
+    						<div class="d-flex mb-3">
+	    						<span class="cat">{{vehicle.car_brand}}</span>
+	    						<p class="price ml-auto" style='color:green;'>${{vehicle.price}} <span>/day</span></p>
+    						</div>
+    						<p class="d-flex mb-0 d-block"><a href='' class="btn btn-danger py-2 mr-1">Unavailable now</a> <a href={% url "car" vehicle.id %} class="btn btn-secondary py-2 ml-1">Details</a></p>
+    					</div>
+    				</div>
+    			</div>
+				{% endif %}
+				{% endif %}
+				{% endif %}
+				{% endfor %}
+        </div>
+    	</div>
+    </section>
+    
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+		  <div class="row mb-5">
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4">
+				<h2 class="ftco-heading-2"><a href="#" class="logo">Car<span style='color:red'>Rent</span></a></h2>
+			  </div>
+			</div>
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4 ml-md-5">
+				<h2 class="ftco-heading-2">Information</h2>
+				<ul class="list-unstyled">
+				  <li><a href={% url "about" %} class="py-2 d-block">About</a></li>
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4">
+				  <h2 class="ftco-heading-2">Have a Questions?</h2>
+				  <div class="block-23 mb-3">
+					<ul>
+					  <li><span ></span><span class="text">Ulica Staisława Moniuszki 15, 40-005, Katowice</span></li>
+					  <li><a><span></span><span class="text">+48 888 999 000</span></a></li>
+					  <li><a><span></span><span class="text">info@car-rent.com</span></a></li>
+					</ul>
+				  </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</footer>
+
+
+
+  <!-- loader -->
+
+  <script src={% static "js/jquery.min.js" %}></script>
+  <script src={% static 'js/jquery-migrate-3.0.1.min.js' %}></script>
+  <script src={% static "js/popper.min.js" %}></script>
+  <script src={% static "js/bootstrap.min.js" %}></script>
+  <script src={% static "js/jquery.easing.1.3.js" %}></script>
+  <script src={% static "js/jquery.waypoints.min.js" %}></script>
+  <script src={% static "js/jquery.stellar.min.js" %}></script>
+  <script src={% static "js/owl.carousel.min.js" %}></script>
+  <script src={% static "js/jquery.magnific-popup.min.js" %}></script>
+  <script src={% static "js/aos.js" %}></script>
+  <script src={% static "js/jquery.animateNumber.min.js" %}></script>
+  <script src={% static "js/scrollax.min.js" %}></script>
+  <script src={% static "js/main.js" %}></script>
+    
+    
+  </body>
+</html>
