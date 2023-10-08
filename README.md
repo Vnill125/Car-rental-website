@@ -12,6 +12,10 @@ https://github.com/Vnill125/Car-rental-website/assets/129762972/fe7f20b6-48e4-4f
 
 
 
+
+
+
+
 Home Page:
 
 https://github.com/Vnill125/Car-rental-website/assets/129762972/289450ef-7c39-46ee-9989-659872d59392
