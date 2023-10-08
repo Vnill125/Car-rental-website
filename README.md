@@ -1,5 +1,5 @@
 # Car-rental-website
-Car rental project made with Django with User authentication and car rent menagment system.
+Car rental project made with Django with User authentication and car rent management system.
 
 
 https://github.com/Vnill125/Car-rental-website/assets/129762972/7aad5bb3-4d2b-432f-aaed-84e6262e87ee
