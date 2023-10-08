@@ -1,5 +1,5 @@
 # Car-rental-website
-Car rental project made with Django 
+Car rental project made with Django with User authentication and car rent menagment system.
 
 Home Page:
 
