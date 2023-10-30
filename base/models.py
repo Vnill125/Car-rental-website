@@ -1,7 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.query import QuerySet
 
 # Create your models here.
+
+class VehicleQuerySet(models.QuerySet):
+    def is_available(self):
+        return self.filter(is_available = True)
+    
+class VehiclesManager(models.Manager):
+    def get_queryset(self):
+        return VehicleQuerySet(self.model, using=self._db)
+    
+    def is_available(self):
+        return self.get_queryset().is_available()
 
 
 class Vehicles(models.Model):
@@ -13,6 +25,8 @@ class Vehicles(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=7, null=True)
     is_available = models.BooleanField(default = True)
     image = models.ImageField(null=True, blank=True)
+    
+    objects = VehiclesManager()
     
     def __str__(self):
         return self.car_model
